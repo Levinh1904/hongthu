@@ -34,7 +34,7 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
 }
 
 .btn:hover, 
@@ -79,7 +79,7 @@ a#scrollUp i{
 .contactinfo ul li a{
   font-size: 12px;
   color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
 }
 
 
@@ -182,7 +182,7 @@ a#scrollUp i{
 .dropdown-menu  li  a:hover, .dropdown-menu  li  a:focus {
   background-color: #FE980F;
   color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   text-decoration: none;
 }
 
@@ -201,7 +201,7 @@ a#scrollUp i{
 .shop-menu ul li a {
   /* background: #FFFFFF; */
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   font-weight: 300;
   padding:0;
@@ -241,7 +241,7 @@ a#scrollUp i{
 
 .mainmenu ul li a {
 	 color: #444242;
-	font-family: 'Roboto', sans-serif;
+	font-family: auto;
 	font-size: 17px;
 	font-weight: bold;
 	padding: 0;
@@ -373,7 +373,7 @@ ul.sub-menu {
 
 .companyinfo p {
   color: #B3B3AD;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 12px;
   font-weight: 300;
 }
@@ -431,7 +431,7 @@ ul.sub-menu {
 
 .video-gallery p {
   color: #8C8C88;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 12px;
   font-weight: 500;
   margin-bottom:0px;
@@ -439,7 +439,7 @@ ul.sub-menu {
 
 .video-gallery  h2 {
   color: #8c8c88;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 12px;
   font-weight: 300;
   text-transform:uppercase;
@@ -458,7 +458,7 @@ ul.sub-menu {
 
 .address p {
   color: #666663;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   font-weight: 300;
   left: 25px;
@@ -476,7 +476,7 @@ ul.sub-menu {
 }
 
 .single-widget h2 {
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 16px;
   font-weight: 500;
   margin-bottom: 22px;
@@ -489,7 +489,7 @@ ul.sub-menu {
 
 .single-widget ul li a{
 	color: #8C8C88;
-	font-family: 'Roboto', sans-serif;
+	font-family: auto;
 	font-size: 14px;
 	font-weight: 300;
 	padding: 5px 0;
@@ -508,7 +508,7 @@ ul.sub-menu {
 .searchform input {
   border: 1px solid #DDDDDD;
   color: #CCCCC6;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   margin-top: 0;
   outline: medium none;
@@ -538,7 +538,7 @@ ul.sub-menu {
 
 .searchform p {
   color: #8C8C88;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   font-weight: 300;
   margin-top: 25px;
@@ -551,7 +551,7 @@ ul.sub-menu {
 
 .footer-bottom p {
   color: #363432;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-weight: 300;
   margin-left: 15px;
 }
@@ -608,7 +608,7 @@ ul.sub-menu {
 
 .item h2 {
   color: #363432;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 28px;
   font-weight: 700;
   margin-bottom: 22px;
@@ -619,7 +619,7 @@ ul.sub-menu {
 	color:#363432;
 	font-size:16px;
 	font-weight:300;
-	font-family: 'Roboto', sans-serif;
+	font-family: auto;
 }
 
 .get {
@@ -627,7 +627,7 @@ ul.sub-menu {
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 16px;
   font-weight: 300;
   margin-top: 23px;
@@ -661,7 +661,7 @@ ul.sub-menu {
 }
 .left-sidebar h2, .brands_products h2 {
   color: #FE980F;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 18px;
   font-weight: 700;
   margin: 0 auto 30px;
@@ -723,7 +723,7 @@ h2.title:before{
 
 .category-products .panel-default .panel-heading .panel-title a {
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   text-decoration: none;
   text-transform: uppercase;
@@ -755,7 +755,7 @@ h2.title:before{
 
 .panel-body ul li a {
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 12px;
   text-transform: uppercase;
 }
@@ -770,7 +770,7 @@ h2.title:before{
 .brands-name .nav-stacked li a {
   background-color: #FFFFFF;
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   padding: 5px 25px;
   text-decoration: none;
@@ -836,7 +836,7 @@ h2.title:before{
 
 h2.title {
   color: #FE980F;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 18px;
   font-weight: 700;
   margin: 0 15px;
@@ -923,7 +923,7 @@ h2.title {
   border: 0 none;
   border-radius: 0;
   color: #FE980F;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 15px;
   margin-bottom: 25px;
 }
@@ -935,7 +935,7 @@ h2.title {
 
 
 .product-overlay p{
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   font-weight: 400;
   color: #fff;
@@ -948,7 +948,7 @@ h2.title {
   border: 0 none;
   border-radius: 0;
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 15px;
   margin-bottom: 25px;
 }
@@ -970,7 +970,7 @@ h2.title {
 
 .add-to-cart:hover {
   background: #FE980F;
-  color: #FFFFFF;
+  color: #FE980F;
 }
 
 .choose {
@@ -979,7 +979,7 @@ h2.title {
 
 .choose ul li a {
   color: #B3AFA8;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 13px;
   padding-left: 0;
   padding-right: 0;
@@ -1012,7 +1012,7 @@ h2.title {
   border-radius: 0;
   color: #B3AFA8;
   display: block;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -1183,7 +1183,7 @@ h2.title {
   background: #FE980F;
   bottom: 0;
   color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   font-weight: 700;
   margin-bottom: 0;
@@ -1238,7 +1238,7 @@ h2.title {
 
 .product-information h2 {
   color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 20px;
   margin-top: 0;
   font-weight: bold;
@@ -1262,7 +1262,7 @@ h2.title {
 .product-information span span {
   color: #FE980F;
   float: left;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 30px;
   font-weight: 700;
   margin-right: 20px;
@@ -1271,7 +1271,7 @@ h2.title {
 .product-information span input {
   border: 1px solid #DEDEDC;
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 20px;
   font-weight: 700;
   height: 33px;
@@ -1282,7 +1282,7 @@ h2.title {
 
 .product-information span label {
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-weight: 700;
   margin-right: 5px;
 }
@@ -1297,7 +1297,7 @@ h2.title {
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 15px;
   margin-bottom: 10px;
   margin-left: 20px;
@@ -1332,7 +1332,7 @@ h2.title {
 #reviews ul li a {
    color: black;
   display: block;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   padding-right: 15px;
 }
@@ -1359,7 +1359,7 @@ h2.title {
   background:#F0F0E9;
   border: 0 none;
   color: #A6A6A1;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   outline: medium none;
   padding: 8px;
@@ -1388,7 +1388,7 @@ h2.title {
   border: 0 none;
   border-radius: 0;
   color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
 }
 
@@ -1403,7 +1403,7 @@ h2.title {
 
 .content-404 h1 {
   color: #363432;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 41px;
   font-weight: 300;
 }
@@ -1414,7 +1414,7 @@ h2.title {
 
 .content-404 p {
   color: #363432;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 18px;
 }
 
@@ -1425,7 +1425,7 @@ h2.title {
 .content-404 h2 a {
   background: #FE980F;
   color: #FFFFFF;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 44px;
   font-weight: 300;
   padding: 8px 40px;
@@ -1450,13 +1450,19 @@ h2.title {
 .signup-form {
 
 }
+.col-sm-4.logout {
+  margin-left: -15px;
+  border: 1px solid #ece899;
+  padding-bottom: 7px;
+}
 
 .login-form h2, .signup-form h2 {
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 20px;
   font-weight: 300;
   margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
 
@@ -1465,7 +1471,7 @@ h2.title {
   border: medium none;
    color: black;
   display: block;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-size: 14px;
   font-weight: 300;
   height: 40px;
@@ -1496,7 +1502,7 @@ h2.title {
   border-radius: 0;
   color: #FFFFFF;
   display: block;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   padding: 6px 25px;
 }
 
@@ -1519,7 +1525,7 @@ h2.title {
 	background: #FE980F;
 	border-radius: 40px;
 	color: #FFFFFF;
-	font-family: 'Roboto', sans-serif;
+	font-family: auto;
 	font-size: 16px;
 	height: 50px;
 	line-height: 50px;
@@ -1580,7 +1586,7 @@ h2.title {
   background: #FE980F;
   color: #fff;
   font-size: 16px;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-weight: normal;
 }
 
@@ -1693,7 +1699,7 @@ h2.title {
 .heading h3 {
   color: #363432;
   font-size: 20px;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
 }
 
 .heading p {
@@ -1816,7 +1822,7 @@ h2.title {
   font-size: 20px;
   margin-bottom: 35px;
   padding: 10px 25px;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
 }
 
 .checkout-options {
@@ -1829,7 +1835,7 @@ h2.title {
   font-size: 20px;
   margin-bottom: 0;
   font-weight: normal;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
 }
 
 .checkout-options p {
@@ -1843,7 +1849,7 @@ h2.title {
   margin-right: 45px;
    color: black;
   font-size: 18px;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   font-weight: normal;
 }
 
@@ -1942,7 +1948,7 @@ h2.title {
 .order-message label {
   font-weight:300;
    color: black;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   margin-left: 10px;
   font-size: 14px
 }
@@ -2235,7 +2241,7 @@ h2.title {
   color: #363432;
   font-size: 14px;
   font-weight: 700;
-  font-family: 'Roboto', sans-serif;
+  font-family: auto;
   margin-bottom: 15px
 }
 

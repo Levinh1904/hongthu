@@ -1,13 +1,11 @@
 @extends('layout')
 @section('content')
-<style>.col-sm-3 {
-    display: none;
-}
+
 </style>
 	<section id="form"><!--form-->
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
+				<div class="col-sm-4 login">
 					<div class="login-form"><!--login form-->
 						<h2>Đăng nhập tài khoản</h2>
 						<form action="{{URL::to('/login-customer')}}" method="POST">
@@ -25,7 +23,7 @@
 				<div class="col-sm-1">
 					<h2 class="or">Hoặc</h2>
 				</div>
-				<div class="col-sm-4">
+				<div class="col-sm-4 logout">
 					<div class="signup-form"><!--sign up form-->
 						<h2>Đăng ký</h2>
 						<form action="{{URL::to('/add-customer')}}" method="POST">

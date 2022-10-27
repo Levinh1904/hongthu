@@ -78,6 +78,11 @@ input.cart_quantity {
     width: 40px;
     text-align: center;
 }
+.login {
+    border: 1px solid #f1ea9b;
+    padding-bottom: 40px;
+    padding-top: 20px;
+}
     </style>
 </head><!--/head-->
 

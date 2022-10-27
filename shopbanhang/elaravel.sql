@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 26, 2022 at 03:32 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Máy chủ: 127.0.0.1
+-- Thời gian đã tạo: Th5 26, 2020 lúc 07:11 PM
+-- Phiên bản máy phục vụ: 10.1.40-MariaDB
+-- Phiên bản PHP: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,51 +19,25 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `elaravel`
+-- Cơ sở dữ liệu: `elaravel`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_roles`
---
-
-CREATE TABLE `admin_roles` (
-  `id_admin_roles` int(11) NOT NULL,
-  `admin_admin_id` int(10) UNSIGNED NOT NULL,
-  `roles_id_roles` int(10) UNSIGNED NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `admin_roles`
---
-
-INSERT INTO `admin_roles` (`id_admin_roles`, `admin_admin_id`, `roles_id_roles`) VALUES
-(30, 8, 3),
-(38, 2, 2),
-(39, 2, 3),
-(40, 2, 1),
-(47, 1, 2),
-(48, 1, 3),
-(49, 3, 3),
-(50, 3, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `password_resets`
+-- Cấu trúc bảng cho bảng `password_resets`
 --
 
 CREATE TABLE `password_resets` (
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_admin`
+-- Cấu trúc bảng cho bảng `tbl_admin`
 --
 
 CREATE TABLE `tbl_admin` (
@@ -76,18 +51,16 @@ CREATE TABLE `tbl_admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_admin`
+-- Đang đổ dữ liệu cho bảng `tbl_admin`
 --
 
 INSERT INTO `tbl_admin` (`admin_id`, `admin_email`, `admin_password`, `admin_name`, `admin_phone`, `created_at`, `updated_at`) VALUES
-(1, 'vinh44604@donga.edu.vn', 'e10adc3949ba59abbe56e057f20f883e', 'LeVinh', '0326190400', NULL, NULL),
-(2, 'Vinhvanvanvinh2000@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'LeVinh1904', '0326190400', NULL, NULL),
-(3, 'LeVinh@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'LeVinh00', '0326190400', NULL, NULL);
+(1, 'admin@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', 'hieu tan', '0932023992', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_brand`
+-- Cấu trúc bảng cho bảng `tbl_brand`
 --
 
 CREATE TABLE `tbl_brand` (
@@ -101,18 +74,18 @@ CREATE TABLE `tbl_brand` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_brand`
+-- Đang đổ dữ liệu cho bảng `tbl_brand`
 --
 
 INSERT INTO `tbl_brand` (`brand_id`, `brand_name`, `brand_slug`, `brand_desc`, `brand_status`, `created_at`, `updated_at`) VALUES
-(10, 'Công Ty Rau Xanh', 'cong-ty-rau-xanh', 'cong-ty-rau-xanh', 0, NULL, NULL),
-(11, 'Vinamilk', 'vinamilk', 'vinamilk', 0, NULL, NULL),
-(12, 'Công Ty Thực Phẩm', 'cong-ty-thuc-pham', 'cong-ty-thuc-pham', 0, NULL, NULL);
+(1, 'Sony', 'sony', 'Sony', 0, NULL, NULL),
+(2, 'Samsung', 'samsung', 'Samsung ok lắm ,xài rât ổn định', 0, NULL, NULL),
+(3, 'Dell', 'dell', 'Dell ok lắm dùng rất bền', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_category_product`
+-- Cấu trúc bảng cho bảng `tbl_category_product`
 --
 
 CREATE TABLE `tbl_category_product` (
@@ -127,23 +100,20 @@ CREATE TABLE `tbl_category_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_category_product`
+-- Đang đổ dữ liệu cho bảng `tbl_category_product`
 --
 
 INSERT INTO `tbl_category_product` (`category_id`, `meta_keywords`, `category_name`, `slug_category_product`, `category_desc`, `category_status`, `created_at`, `updated_at`) VALUES
-(10, 'thit-tuoi-song', 'Thịt Tươi Sống', 'thit-tuoi-song', 'thit-tuoi-song', 0, NULL, NULL),
-(12, 'rau', 'Rau', 'rau', 'rau', 0, NULL, NULL),
-(13, 'qua-tang-trai-cay-va-hat', 'Trái Cây Và Hạt', 'trai-cay-va-hat', 'qua-tang-trai-cay-va-hat', 0, NULL, NULL),
-(14, 'qua-tuoi', 'Quả Tươi', 'qua-tuoi', 'qua-tuoi', 0, NULL, NULL),
-(15, 'thuc-pham-dai-duong', 'Thực Phẩm Đại Dương', 'thuc-pham-dai-duong', 'thuc-pham-dai-duong', 0, NULL, NULL),
-(16, 'bo-va-trung', 'Bơ và Trứng', 'bo-va-trung', 'bo-va-trung', 0, NULL, NULL),
-(17, 'thuc-an-nhanh', 'Thức Ắn Nhanh', 'thuc-an-nhanh', 'thuc-an-nhanh', 0, NULL, NULL),
-(18, 'chao-yen-mach', 'Cháo Yến Mạch', 'chao-yen-mach', 'chao-yen-mach', 0, NULL, NULL);
+(1, 'xbox game,mua game xbox ,xbox 360', 'Xbox one', 'xbox-one', 'Xbox 360 là thế hệ thứ 2 của dòng máy chơi game console do Microsoft phát triển, cạnh tranh trực tiếp với Playstation 3 của Sony.', 0, NULL, NULL),
+(2, 'ps4,may choi game ps4', 'Máy PS4', 'may-ps4', 'PS4 là game cầm tay hay nhất mọi thời đại', 0, NULL, NULL),
+(3, 'tay cam ps4,tay cầm ps4', 'Tay cầm chơi game', 'tay-cam-choi-game', 'Tay cầm chơi game hạng nhất từ các hãng sản xuất số 1 hàng đầu châu mỹ', 0, NULL, NULL),
+(5, 'dia-ps4-gaming', 'Đĩa PS4 gaming', 'dia-ps4-gaming', 'Dia cd ps4', 0, NULL, NULL),
+(6, 'Màn hình gaming,gaming', 'Màn hình gaming', 'man-hinh-gaming', 'Màn hình gaming', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_coupon`
+-- Cấu trúc bảng cho bảng `tbl_coupon`
 --
 
 CREATE TABLE `tbl_coupon` (
@@ -156,17 +126,17 @@ CREATE TABLE `tbl_coupon` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_coupon`
+-- Đang đổ dữ liệu cho bảng `tbl_coupon`
 --
 
 INSERT INTO `tbl_coupon` (`coupon_id`, `coupon_name`, `coupon_time`, `coupon_condition`, `coupon_number`, `coupon_code`) VALUES
 (1, 'Giảm giá 30/4', 10, 1, 10, 'HDH375Y'),
-(6, 'Giảm giá Covid', 10, 2, 200000, 'COVID99');
+(4, 'Giảm giá Covid', 5, 2, 100000, 'COVID99');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_customers`
+-- Cấu trúc bảng cho bảng `tbl_customers`
 --
 
 CREATE TABLE `tbl_customers` (
@@ -180,16 +150,19 @@ CREATE TABLE `tbl_customers` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_customers`
+-- Đang đổ dữ liệu cho bảng `tbl_customers`
 --
 
 INSERT INTO `tbl_customers` (`customer_id`, `customer_name`, `customer_email`, `customer_password`, `customer_phone`, `created_at`, `updated_at`) VALUES
-(4, 'Lê Vĩnh', 'vinh44604@donga.edu.vn', 'e10adc3949ba59abbe56e057f20f883e', '0326190400', NULL, NULL);
+(4, 'Hiếu Tấn', 'tanhieu@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
+(5, 'Hoàng thị yến vi', 'yenvi@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
+(6, 'Trương Ngọc Tấn Hiếu', 'hieu123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL),
+(7, 'Anh hieu dep giai 123', 'depgiai123@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '0932023992', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_feeship`
+-- Cấu trúc bảng cho bảng `tbl_feeship`
 --
 
 CREATE TABLE `tbl_feeship` (
@@ -201,22 +174,20 @@ CREATE TABLE `tbl_feeship` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_feeship`
+-- Đang đổ dữ liệu cho bảng `tbl_feeship`
 --
 
 INSERT INTO `tbl_feeship` (`fee_id`, `fee_matp`, `fee_maqh`, `fee_xaid`, `fee_feeship`) VALUES
-(1, 1, 1, 1, '50000'),
+(1, 1, 1, 1, '50.000'),
 (2, 1, 1, 16, '60000'),
 (3, 1, 2, 40, '150000'),
 (4, 2, 26, 712, '60000'),
-(5, 79, 760, 26734, '80000'),
-(6, 8, 74, 2374, '15000'),
-(7, 77, 748, 26548, '60000');
+(5, 79, 760, 26734, '80000');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_order`
+-- Cấu trúc bảng cho bảng `tbl_order`
 --
 
 CREATE TABLE `tbl_order` (
@@ -230,17 +201,26 @@ CREATE TABLE `tbl_order` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_order`
+-- Đang đổ dữ liệu cho bảng `tbl_order`
 --
 
 INSERT INTO `tbl_order` (`order_id`, `customer_id`, `shipping_id`, `order_status`, `order_code`, `created_at`, `updated_at`) VALUES
-(18, 4, 19, 2, '1778b', '2020-08-08 08:54:34', NULL),
-(19, 8, 20, 1, 'fa45c', '2022-10-25 17:17:56', NULL);
+(6, 4, 7, 1, '3790e', '2020-05-01 05:53:31', NULL),
+(7, 4, 8, 1, '699d7', '2020-05-01 05:55:22', NULL),
+(8, 4, 9, 1, '346b1', '2020-05-01 05:57:42', NULL),
+(9, 4, 10, 1, 'b0374', '2020-05-01 06:01:54', NULL),
+(10, 4, 11, 1, '2c7fc', '2020-05-01 06:02:58', NULL),
+(11, 4, 12, 1, 'e8c05', '2020-05-01 06:04:51', NULL),
+(12, 4, 13, 1, 'baca3', '2020-05-01 06:05:59', NULL),
+(13, 4, 14, 1, 'a094f', '2020-05-01 06:07:20', NULL),
+(14, 5, 15, 2, '168cf', '2020-05-26 11:34:17', NULL),
+(15, 6, 16, 1, 'd8ba7', '2020-05-26 16:46:05', NULL),
+(16, 7, 17, 2, '9681f', '2020-05-26 16:55:17', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_order_details`
+-- Cấu trúc bảng cho bảng `tbl_order_details`
 --
 
 CREATE TABLE `tbl_order_details` (
@@ -257,36 +237,56 @@ CREATE TABLE `tbl_order_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_order_details`
+-- Đang đổ dữ liệu cho bảng `tbl_order_details`
 --
 
 INSERT INTO `tbl_order_details` (`order_details_id`, `order_code`, `product_id`, `product_name`, `product_price`, `product_sales_quantity`, `product_coupon`, `product_feeship`, `created_at`, `updated_at`) VALUES
-(47, '3fc48', 6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '431000', 5, 'COVID99', '50000', NULL, NULL),
-(48, '3fc48', 7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '230000', 1, 'COVID99', '50000', NULL, NULL),
-(49, '3fc48', 8, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 7kg', '135000', 1, 'COVID99', '50000', NULL, NULL),
-(50, '1778b', 24, 'Sách ngôn tình hồ ly tinh', '500000', 1, 'HDH375Y', '60000', NULL, NULL),
-(51, '1778b', 22, 'Máy PS4 slim Mega pack 2', '7550000', 1, 'HDH375Y', '60000', NULL, NULL),
-(52, '1778b', 20, 'Áo Thun Nam Y2010 Basic AI08', '286000', 1, 'HDH375Y', '60000', NULL, NULL),
-(53, '1778b', 7, 'Thức ăn cho chó nhỏ trưởng thành Farmina N&D PUMPKIN vị heo, bí ngô và táo 3kg', '230000', 1, 'HDH375Y', '60000', NULL, NULL),
-(54, '1778b', 6, 'Royal Canin Urinary Canine Dog 2kg - Dành cho chó bị sỏi thận-10kg', '431000', 1, 'HDH375Y', '60000', NULL, NULL),
-(55, 'fa45c', 31, 'Táo Nhập Khẩu', '50000', 1, 'no', '25000', NULL, NULL),
-(56, 'fa45c', 25, 'Thịt Bò Úc', '250000', 1, 'no', '25000', NULL, NULL),
-(57, 'fa45c', 26, 'Chuối Tươi', '2000', 1, 'no', '25000', NULL, NULL);
+(16, '3790e', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 2, 'COVID99', '50000', NULL, NULL),
+(17, '3790e', 10, 'Tay cầm chơi game PS4 màu đỏ', '60000', 2, 'COVID99', '50000', NULL, NULL),
+(18, '3790e', 9, 'Máy PS4 màu đỏ', '5000000', 1, 'COVID99', '50000', NULL, NULL),
+(19, '3790e', 7, 'Tay cầm chơi game PS4 màu đỏ', '60000', 2, 'COVID99', '50000', NULL, NULL),
+(20, '3790e', 8, 'Tay cầm chơi game PS4 màu trắng', '500000', 2, 'COVID99', '50000', NULL, NULL),
+(21, '699d7', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 2, 'COVID99', '50000', NULL, NULL),
+(22, '699d7', 10, 'Tay cầm chơi game PS4 màu đỏ', '60000', 6, 'COVID99', '50000', NULL, NULL),
+(23, '699d7', 9, 'Máy PS4 màu đỏ', '5000000', 4, 'COVID99', '50000', NULL, NULL),
+(24, '699d7', 7, 'Tay cầm chơi game PS4 màu đỏ', '60000', 3, 'COVID99', '50000', NULL, NULL),
+(25, '699d7', 8, 'Tay cầm chơi game PS4 màu trắng', '500000', 2, 'COVID99', '50000', NULL, NULL),
+(26, '346b1', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 1, 'HDH375Y', '10000', NULL, NULL),
+(27, '346b1', 12, 'Máy PS4 màu đỏ', '5000000', 1, 'HDH375Y', '10000', NULL, NULL),
+(28, 'b0374', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 1, 'no', '10000', NULL, NULL),
+(29, 'b0374', 10, 'Tay cầm chơi game PS4 màu đỏ', '60000', 1, 'no', '10000', NULL, NULL),
+(30, '2c7fc', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 1, 'no', '10000', NULL, NULL),
+(31, 'baca3', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 1, 'no', '10000', NULL, NULL),
+(32, 'baca3', 12, 'Máy PS4 màu đỏ', '5000000', 1, 'no', '10000', NULL, NULL),
+(33, 'a094f', 10, 'Tay cầm chơi game PS4 màu đỏ', '60000', 1, 'no', '10000', NULL, NULL),
+(34, 'a094f', 8, 'Tay cầm chơi game PS4 màu trắng', '500000', 1, 'no', '10000', NULL, NULL),
+(35, '168cf', 14, 'Xbox 11233', '1500000', 1, 'COVID99', '50000', NULL, NULL),
+(36, '168cf', 12, 'Máy PS4 màu đỏ', '5000000', 1, 'COVID99', '50000', NULL, NULL),
+(37, '168cf', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 1, 'COVID99', '50000', NULL, NULL),
+(38, 'd8ba7', 2, 'Tay cầm chơi game PS4 màu trắng', '500000', 10, 'COVID99', '25000', NULL, NULL),
+(39, 'd8ba7', 11, 'Tay cầm chơi game PS4 màu trắng', '500000', 3, 'COVID99', '25000', NULL, NULL),
+(40, 'd8ba7', 14, 'Xbox 11233', '1500000', 5, 'COVID99', '25000', NULL, NULL),
+(41, 'd8ba7', 7, 'Tay cầm chơi game PS4 màu đỏ', '60000', 4, 'COVID99', '25000', NULL, NULL),
+(42, 'd8ba7', 9, 'Máy PS4 màu đỏ', '5006000', 8, 'COVID99', '25000', NULL, NULL),
+(43, '9681f', 2, 'Tay cầm chơi game PS4 màu trắng', '500000', 6, 'HDH375Y', '50000', NULL, NULL),
+(44, '9681f', 1, 'Tay cầm chơi game PS4 màu đỏ', '60000', 5, 'HDH375Y', '50000', NULL, NULL),
+(45, '9681f', 7, 'Tay cầm chơi game PS4 màu đỏ', '60000', 10, 'HDH375Y', '50000', NULL, NULL),
+(46, '9681f', 5, 'Tay cầm chơi game PS4 màu trắng', '500000', 5, 'HDH375Y', '50000', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_product`
+-- Cấu trúc bảng cho bảng `tbl_product`
 --
 
 CREATE TABLE `tbl_product` (
   `product_id` int(10) UNSIGNED NOT NULL,
   `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_quantity` varchar(50) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `product_sold` int(11) DEFAULT NULL,
+  `product_sold` int(11) NOT NULL,
   `product_slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `category_id` int(11) UNSIGNED NOT NULL,
-  `brand_id` int(11) UNSIGNED NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `brand_id` int(11) NOT NULL,
   `product_desc` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_content` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `product_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -297,24 +297,28 @@ CREATE TABLE `tbl_product` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_product`
+-- Đang đổ dữ liệu cho bảng `tbl_product`
 --
 
 INSERT INTO `tbl_product` (`product_id`, `product_name`, `product_quantity`, `product_sold`, `product_slug`, `category_id`, `brand_id`, `product_desc`, `product_content`, `product_price`, `product_image`, `product_status`, `created_at`, `updated_at`) VALUES
-(25, 'Thịt Bò Úc', '500', NULL, 'thit-bo-uc', 10, 12, '<p>T&ecirc;n sản phẩm:THĂN NGOẠI B&Ograve; M&Aacute;T NHẬP KHẨU</p>\r\n\r\n<p>SKU:&nbsp;8936176551225</p>\r\n\r\n<p>Mua b&ograve; &ldquo;n&oacute;ng&rdquo; mỗi s&aacute;ng sớm ở chợ l&agrave; th&oacute;i quen của bạn trong thời gian qua c&oacute; thể v&igrave; l&agrave; cảm gi&aacute;c muốn mua được thịt tươi nhất, ngon nhất. Nhưng lại chưa chắc đ&atilde; l&agrave; an to&agrave;n nhất do quy tr&igrave;nh b&aacute;n h&agrave;ng kh&ocirc;ng đảm bảo vệ sinh.</p>\r\n\r\n<p>Nhưng với b&ograve; m&aacute;t, thịt b&ograve; sẽ được &ldquo;ủ&rdquo; m&aacute;t trong m&ocirc;i trường vệ sinh v&agrave; đảm bảo nhiệt độ từ 0-4 độ C để thịt b&ograve; sản sinh enzyme gi&uacute;p thịt mềm hơn, ngọt đậm đ&agrave; hơn v&agrave; đặc biệt giữ được tối đa h&agrave;m lượng dinh dưỡng trong sản phẩm.</p>\r\n\r\n<p>D&ugrave;ng thịt b&ograve; m&aacute;t l&agrave;m steak, th&aacute;i mỏng để x&agrave;o hay l&agrave;m thịt b&ograve; l&uacute;c lắc th&igrave; bữa cơm h&ocirc;m nay</p>', '<p>T&ecirc;n sản phẩm:THĂN NGOẠI B&Ograve; M&Aacute;T NHẬP KHẨU</p>\r\n\r\n<p>SKU:&nbsp;8936176551225</p>\r\n\r\n<p>Mua b&ograve; &ldquo;n&oacute;ng&rdquo; mỗi s&aacute;ng sớm ở chợ l&agrave; th&oacute;i quen của bạn trong thời gian qua c&oacute; thể v&igrave; l&agrave; cảm gi&aacute;c muốn mua được thịt tươi nhất, ngon nhất. Nhưng lại chưa chắc đ&atilde; l&agrave; an to&agrave;n nhất do quy tr&igrave;nh b&aacute;n h&agrave;ng kh&ocirc;ng đảm bảo vệ sinh.</p>\r\n\r\n<p>Nhưng với b&ograve; m&aacute;t, thịt b&ograve; sẽ được &ldquo;ủ&rdquo; m&aacute;t trong m&ocirc;i trường vệ sinh v&agrave; đảm bảo nhiệt độ từ 0-4 độ C để thịt b&ograve; sản sinh enzyme gi&uacute;p thịt mềm hơn, ngọt đậm đ&agrave; hơn v&agrave; đặc biệt giữ được tối đa h&agrave;m lượng dinh dưỡng trong sản phẩm.</p>\r\n\r\n<p>D&ugrave;ng thịt b&ograve; m&aacute;t l&agrave;m steak, th&aacute;i mỏng để x&agrave;o hay l&agrave;m thịt b&ograve; l&uacute;c lắc th&igrave; bữa cơm h&ocirc;m nay</p>', '250000', 'product-11.jpg', 0, NULL, NULL),
-(26, 'Chuối Tươi', '200', NULL, 'chuoi-tuoi', 14, 12, '<p><a href=\"https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/loi-ich-cua-chuoi-voi-suc-khoe/\"><strong>Chuối</strong></a>&nbsp;l&agrave; một trong những loại c&acirc;y lương thực quan trọng nhất tr&ecirc;n h&agrave;nh tinh. N&oacute; l&agrave; loại thực vật thuộc họ Musa c&oacute; nguồn gốc từ Đ&ocirc;ng Nam &Aacute; v&agrave; được trồng nhiều ở c&aacute;c khu vực ấm &aacute;p. Chuối l&agrave; một nguồn&nbsp;<strong>chất xơ</strong>&nbsp;l&agrave;nh mạnh, gi&agrave;u kali,&nbsp;<a href=\"https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/vitamin-b6-pyridoxine-cong-dung-lieu-dung-tac-dung-phu/\"><strong>vitamin B6</strong></a>,&nbsp;<a href=\"https://www.vinmec.com/vi/co-the-nguoi/vitamin-c-63/\"><strong>vitamin C</strong></a>, chất chống oxy h&oacute;a v&agrave; c&aacute;c phytonutrients.</p>\r\n\r\n<p>Chuối c&oacute; nhiều loại v&agrave; k&iacute;ch cỡ kh&aacute;c nhau. M&agrave;u sắc thường dao động từ m&agrave;u xanh đến m&agrave;u v&agrave;ng. Tuy nhi&ecirc;n, hiện nay c&oacute; th&ecirc;m một số giống chuối m&agrave;u đỏ.</p>\r\n\r\n<p>Chuối l&agrave; loại thực phẩm tốt cho sức khỏe, bởi n&oacute; c&oacute; chứa một số chất dinh dưỡng thiết yếu v&agrave; cung cấp lợi &iacute;ch cho ti&ecirc;u ho&aacute;, sức khoẻ tim v&agrave; giảm c&acirc;n. B&ecirc;n cạnh đ&oacute;, chuối cũng l&agrave; một m&oacute;n ăn vặt rất tiện lợi.</p>\r\n\r\n<p>Nghi&ecirc;n cứu ph&acirc;n t&iacute;ch tổng hợp năm 2017 được c&ocirc;ng bố bởi Bộ phận khoa học Y khoa Prilozi cho rằng, chuối xanh chưa ch&iacute;n mang lại một số lợi &iacute;ch sức khỏe. Ch&uacute;ng c&oacute; thể gi&uacute;p kiểm so&aacute;t c&aacute;c vấn đề về đường ti&ecirc;u ho&aacute; như&nbsp;<a href=\"https://www.vinmec.com/vi/benh/tieu-chay-3002/\"><strong>ti&ecirc;u chảy</strong></a>&nbsp;v&agrave; lo&eacute;t, giảm cholesterol v&agrave; huyết &aacute;p. Ngo&agrave;i ra, một số nghi&ecirc;n cứu cũng đ&atilde; gợi &yacute; rằng c&aacute;c chất thảo dược trong chuối xanh c&oacute; thể cung cấp điều trị c&oacute; bệnh nh&acirc;n&nbsp;<a href=\"https://www.vinmec.com/vi/benh/hiv-2975/\"><strong>HIV</strong></a>.</p>', '<p><a href=\"https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/loi-ich-cua-chuoi-voi-suc-khoe/\"><strong>Chuối</strong></a>&nbsp;l&agrave; một trong những loại c&acirc;y lương thực quan trọng nhất tr&ecirc;n h&agrave;nh tinh. N&oacute; l&agrave; loại thực vật thuộc họ Musa c&oacute; nguồn gốc từ Đ&ocirc;ng Nam &Aacute; v&agrave; được trồng nhiều ở c&aacute;c khu vực ấm &aacute;p. Chuối l&agrave; một nguồn&nbsp;<strong>chất xơ</strong>&nbsp;l&agrave;nh mạnh, gi&agrave;u kali,&nbsp;<a href=\"https://www.vinmec.com/vi/tin-tuc/thong-tin-suc-khoe/vitamin-b6-pyridoxine-cong-dung-lieu-dung-tac-dung-phu/\"><strong>vitamin B6</strong></a>,&nbsp;<a href=\"https://www.vinmec.com/vi/co-the-nguoi/vitamin-c-63/\"><strong>vitamin C</strong></a>, chất chống oxy h&oacute;a v&agrave; c&aacute;c phytonutrients.</p>', '2000', 'product-230.jpg', 0, NULL, NULL),
-(27, 'Ổi Nhập Khẩu', '100', NULL, 'oi-nhap-khau', 14, 10, '<p>&nbsp;</p>\r\n\r\n<h2><strong>Ph&ograve;ng ngừa bệnh ung thư</strong></h2>\r\n\r\n<p>Ổi chứa h&agrave;m lượng cao chất lycopene v&agrave; chất chống &ocirc;xy h&oacute;a c&oacute; t&aacute;c dụng chống lại bệnh ung thư, đặc biệt l&agrave; bệnh ung thư tuyến tiền liệt ung thư v&uacute;.</p>\r\n\r\n<p>B&ecirc;n cạnh đ&oacute;, Lycopene c&ograve;n c&oacute; t&aacute;c dụng chống lại sự ảnh hưởng của c&aacute;c gốc tự do, gi&uacute;p cho cơ thể ch&uacute;ng ta khỏe mạnh. Trong đ&oacute;, ổi c&oacute; phần thịt m&agrave;u đỏ chứa nhiều chất chống oxy h&oacute;a hơn những tr&aacute;i ổi c&oacute; phần thịt trắng.</p>\r\n\r\n<h2><strong>Điều trị bệnh cao huyết &aacute;p</strong></h2>\r\n\r\n<p>Ổi rất giảu chất xơ v&agrave; chứa chất hypoglycemic tự nhi&ecirc;n. Hai chất n&agrave;y c&oacute; t&aacute;c dụng hạ huyết &aacute;p v&agrave; giảm cholesterol trong m&aacute;u. Do đ&oacute;, những người c&oacute; nguy cơ bị cao huyết &aacute;p v&agrave; mắc c&aacute;c bệnh về tim mạch n&ecirc;n ăn ổi thường xuy&ecirc;n hơn.</p>\r\n\r\n<p>B&ecirc;n cạnh đ&oacute;, trong ổi c&ograve;n chứa potassium c&oacute; t&aacute;c dụng l&agrave;m giảm chỉ số huyết &aacute;p. Đ&acirc;y l&agrave; c&ocirc;ng dụng của ổi v&ocirc; c&ugrave;ng tuyệt vời m&agrave; kh&ocirc;ng phải ai cũng biết.</p>\r\n\r\n<p><img alt=\"Lợi ích của ổi\" height=\"480\" src=\"https://hongngochospital.vn/wp-content/uploads/2013/11/cong-dung-cua-oi-1.jpg\" width=\"730\" /></p>\r\n\r\n<p><em>Ăn ổi thường xuy&ecirc;n c&oacute; thể l&agrave;m giảm t&igrave;nh trạng cao huyết &aacute;p</em></p>\r\n\r\n<h2><strong>Lợi &iacute;ch của ổi &ndash;&nbsp;</strong><strong>Điều trị bệnh ti&ecirc;u chảy</strong></h2>\r\n\r\n<p>Trong ổi c&oacute; chứa hợp chất l&agrave;m se v&igrave; thế việc ăn ổi c&oacute; t&aacute;c dụng điều trị bệnh ti&ecirc;u chảy kh&aacute; hiệu quả. B&ecirc;n cạnh đ&oacute;, hợp chất kiềm trong ổi c&ograve;n c&oacute; t&aacute;c dụng ph&ograve;ng chống v&agrave; ngăn ngừa vi khuẩn ph&aacute;t triển gi&uacute;p ph&ograve;ng ngừa bệnh tật v&agrave; hỗ trợ điều trị bệnh hiệu quả hơn.</p>\r\n\r\n<p>Ngo&agrave;i ra, ổi rất gi&agrave;u vitamin C v&agrave; chứa c&aacute;c chất carotenoids, potassium c&oacute; khả năng chữa l&agrave;nh c&aacute;c vết thương trong trường hợp&nbsp;<a href=\"https://hongngochospital.vn/tong-hop-thong-tin-benh-viem-loet-da-day/\">vi&ecirc;m lo&eacute;t dạ d&agrave;y</a>.</p>\r\n\r\n<h2><strong>Điều trị ho v&agrave; cảm lạnh</strong></h2>\r\n\r\n<p>Ổi chứa chất l&agrave;m se n&ecirc;n bạn c&oacute; thể sự dụng nước &eacute;p ổi, thậm ch&iacute; nước &eacute;p l&aacute; ổi để hỗ trợ giảm cảm lạnh v&agrave; ho. Đồng thời, ổi rất gi&agrave;u vitamin C gi&uacute;p tăng sức đề kh&aacute;ng cho cơ thể để chống lại sự tấn c&ocirc;ng của virus, vi khuẩn g&acirc;y bệnh.</p>', '<p>Ổi chứa h&agrave;m lượng cao chất lycopene v&agrave; chất chống &ocirc;xy h&oacute;a c&oacute; t&aacute;c dụng chống lại bệnh ung thư, đặc biệt l&agrave; bệnh ung thư tuyến tiền liệt ung thư v&uacute;.</p>\r\n\r\n<p>B&ecirc;n cạnh đ&oacute;, Lycopene c&ograve;n c&oacute; t&aacute;c dụng chống lại sự ảnh hưởng của c&aacute;c gốc tự do, gi&uacute;p cho cơ thể ch&uacute;ng ta khỏe mạnh. Trong đ&oacute;, ổi c&oacute; phần thịt m&agrave;u đỏ chứa nhiều chất chống oxy h&oacute;a hơn những tr&aacute;i ổi c&oacute; phần thịt trắng.</p>', '10000', 'product-331.jpg', 0, NULL, NULL),
-(28, 'Dưa Hấu Tưới', '50', NULL, 'dua-hau-tuoi', 13, 10, '<p><strong><em>Cung cấp nước cho cơ thể</em></strong></p>\r\n\r\n<p>Nước l&agrave; th&agrave;nh phần chiếm tới 95% quả dưa hấu. Ch&iacute;nh v&igrave; vậy, bổ sung<a href=\"https://hongngochospital.vn/8-tac-dung-cua-dua-hau/\" rel=\"noopener noreferrer\" target=\"_blank\">&nbsp;dưa hấu</a>&nbsp;sẽ gi&uacute;p giữ nước cho cơ thể v&agrave; duy tr&igrave; nồng độ điện giải. Ăn dưa hấu thường xuy&ecirc;n c&oacute; thể giảm c&aacute;c triệu chứng mất nước sau khi vận động mạnh, luyện tập thể thao như chuột r&uacute;t, mệt mỏi, cho&aacute;ng&hellip;</p>\r\n\r\n<p><strong><em>Chống oxy h&oacute;a v&agrave; bảo vệ cơ thể</em></strong></p>\r\n\r\n<p>Dưa hấu c&oacute; chứa rất nhiều chất chống oxy h&oacute;a, c&oacute; khả năng ngăn ngừa mức độ ảnh hưởng của gốc tự do, l&agrave;m chậm qu&aacute; tr&igrave;nh tho&aacute;i h&oacute;a v&agrave; bảo vệ c&aacute;c cơ quan trong cơ thể. C&oacute; thể kể đến một số chất chống oxy h&oacute;a c&oacute; trong dưa hấu, như:</p>\r\n\r\n<p>&ndash; Vitamin C: Gi&uacute;p tăng cường miễn dịch v&agrave; ngăn ngừa tổn thương tế b&agrave;o do gốc tự do g&acirc;y ra.</p>\r\n\r\n<p>&ndash; Lycopene: Gi&uacute;p bảo vệ tế b&agrave;o v&otilde;ng mạc v&agrave; thần kinh khỏi t&aacute;c động của gốc tự do.</p>\r\n\r\n<p>&ndash; Carotenoit: L&agrave; hợp chất thực vật bao gồm beta-carotene v&agrave; alpha-carotene, khi được dung nạp v&agrave;o cơ thể sẽ chuyển đổi th&agrave;nh vitamin A.</p>\r\n\r\n<p>&ndash; Cucurbitacin E: C&oacute; t&aacute;c dụng kiểm so&aacute;t phản ứng vi&ecirc;m trong cơ thể.</p>\r\n\r\n<p><img alt=\"\" height=\"512\" sizes=\"(max-width: 768px) 100vw, 768px\" src=\"https://hongngochospital.vn/wp-content/uploads/2020/02/loi-ich-cua-dua-hau-2.jpg\" srcset=\"https://hongngochospital.vn/wp-content/uploads/2020/02/loi-ich-cua-dua-hau-2.jpg 768w, https://hongngochospital.vn/wp-content/uploads/2020/02/loi-ich-cua-dua-hau-2-750x500.jpg 750w\" width=\"768\" /></p>\r\n\r\n<p><em>Dưa hấu c&oacute; chứa rất nhiều chất chống oxy h&oacute;a</em></p>\r\n\r\n<p><strong><em>Ph&ograve;ng ngừa ung thư</em></strong></p>\r\n\r\n<p>Lycopene trong dưa hấu c&oacute; thể ph&ograve;ng ngừa bệnh ung thư &ndash; đặc biệt l&agrave;&nbsp;<a href=\"https://hongngochospital.vn/noi-soi-tieu-hoa-giai-phap-vang-giup-phat-hien-ung-thu-tieu-hoa-som/\" rel=\"noopener noreferrer\" target=\"_blank\">ung thư đường ti&ecirc;u h&oacute;a</a>.</p>\r\n\r\n<p>Hợp chất n&agrave;y l&agrave;m giảm nguy cơ ph&aacute;t triển tế b&agrave;o ung thư bằng c&aacute;ch giảm tăng trưởng IGF. Trong đ&oacute;, IGF tăng cao l&agrave; một trong những nguy&ecirc;n nh&acirc;n k&iacute;ch th&iacute;ch tế b&agrave;o ph&aacute;t triển bất thường v&agrave; c&oacute; nguy cơ chuyển biến th&agrave;nh tế b&agrave;o ung thư.</p>\r\n\r\n<p>B&ecirc;n cạnh đ&oacute;, dưa hấu c&oacute; chứa Cucurbitacin E &ndash; hợp chất c&oacute; t&aacute;c dụng ức chế sự ph&aacute;t triển của khối u v&agrave; ngăn ngừa hiện tượng di căn của tế b&agrave;o ung thư.</p>', '<p><strong><em>Cung cấp nước cho cơ thể</em></strong></p>\r\n\r\n<p>Nước l&agrave; th&agrave;nh phần chiếm tới 95% quả dưa hấu. Ch&iacute;nh v&igrave; vậy, bổ sung<a href=\"https://hongngochospital.vn/8-tac-dung-cua-dua-hau/\" rel=\"noopener noreferrer\" target=\"_blank\">&nbsp;dưa hấu</a>&nbsp;sẽ gi&uacute;p giữ nước cho cơ thể v&agrave; duy tr&igrave; nồng độ điện giải. Ăn dưa hấu thường xuy&ecirc;n c&oacute; thể giảm c&aacute;c triệu chứng mất nước sau khi vận động mạnh, luyện tập thể thao như chuột r&uacute;t, mệt mỏi, cho&aacute;ng&hellip;</p>\r\n\r\n<p><strong><em>Chống oxy h&oacute;a v&agrave; bảo vệ cơ thể</em></strong></p>\r\n\r\n<p>Dưa hấu c&oacute; chứa rất nhiều chất chống oxy h&oacute;a, c&oacute; khả năng ngăn ngừa mức độ ảnh hưởng của gốc tự do, l&agrave;m chậm qu&aacute; tr&igrave;nh tho&aacute;i h&oacute;a v&agrave; bảo vệ c&aacute;c cơ quan trong cơ thể. C&oacute; thể kể đến một số chất chống oxy h&oacute;a c&oacute; trong dưa hấu, như:</p>\r\n\r\n<p>&ndash; Vitamin C: Gi&uacute;p tăng cường miễn dịch v&agrave; ngăn ngừa tổn thương tế b&agrave;o do gốc tự do g&acirc;y ra.</p>\r\n\r\n<p>&ndash; Lycopene: Gi&uacute;p bảo vệ tế b&agrave;o v&otilde;ng mạc v&agrave; thần kinh khỏi t&aacute;c động của gốc tự do.</p>\r\n\r\n<p>&ndash; Carotenoit: L&agrave; hợp chất thực vật bao gồm beta-carotene v&agrave; alpha-carotene, khi được dung nạp v&agrave;o cơ thể sẽ chuyển đổi th&agrave;nh vitamin A.</p>\r\n\r\n<p>&ndash; Cucurbitacin E: C&oacute; t&aacute;c dụng kiểm so&aacute;t phản ứng vi&ecirc;m trong cơ thể.</p>', '50000', 'product-757.jpg', 0, NULL, NULL),
-(29, 'Nho Nhập Khẩu', '234', NULL, 'nho-nhap-khau', 14, 10, '<p>Nho l&agrave; loại tr&aacute;i c&acirc;y được nhiều người ưa th&iacute;ch, đặc biệt nhất l&agrave; phụ nữ v&agrave; trẻ em. Thực tế, c&oacute; qu&aacute; nhiều mức gi&aacute; tiền kh&aacute;c nhau, phụ thuộc nguồn gốc, chủng loại v&agrave; độ tươi ngon của từng loại nho.</p>\r\n\r\n<p><a href=\"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/12/22/nho-tuoi1-1639389306656375248053-16393893538251123912071-1640158889123-16401588892491095598184.jpeg\" target=\"_blank\" title=\"Nho tươi sẽ còn lớp phấn bám quanh quả và cuống xanh tươi. Ảnh minh họa\"><img alt=\"Ai cũng từng ăn nho nhưng chắc chắn không mấy người để ý điều này, không căn cứ vào giá tiền, đây mới là loại tốt nhất cho bạn - Ảnh 1.\" height=\"\" src=\"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2021/12/22/nho-tuoi1-1639389306656375248053-16393893538251123912071-1640158889123-16401588892491095598184.jpeg\" title=\"Ai cũng từng ăn nho nhưng chắc chắn không mấy người để ý điều này, không căn cứ vào giá tiền, đây mới là loại tốt nhất cho bạn - Ảnh 1.\" width=\"\" /></a></p>\r\n\r\n<p>Nho tươi sẽ c&ograve;n lớp phấn b&aacute;m quanh quả v&agrave; cuống xanh tươi. Ảnh minh họa</p>\r\n\r\n<p>X&eacute;t về g&oacute;c độ dinh dưỡng, th&igrave; theo c&aacute;c chuy&ecirc;n gia, nho c&oacute; m&agrave;u sắc kh&aacute;c nhau, gi&aacute; trị dinh dưỡng của ch&uacute;ng cũng kh&aacute;c nhau.</p>\r\n\r\n<p>H&agrave;m lượng kho&aacute;ng chất như kali, magi&ecirc; v&agrave; canxi trong nho đen cao hơn so với c&aacute;c loại nho m&agrave;u kh&aacute;c. N&oacute; c&oacute; thể bổ sung c&aacute;c kho&aacute;ng chất cần thiết cho cơ thể con người v&agrave; gi&uacute;p chống lại sự mệt mỏi.</p>', '<p>Nho l&agrave; loại tr&aacute;i c&acirc;y được nhiều người ưa th&iacute;ch, đặc biệt nhất l&agrave; phụ nữ v&agrave; trẻ em. Thực tế, c&oacute; qu&aacute; nhiều mức gi&aacute; tiền kh&aacute;c nhau, phụ thuộc nguồn gốc, chủng loại v&agrave; độ tươi ngon của từng loại nho.</p>', '300000', 'product-419.jpg', 0, NULL, NULL),
-(30, 'Soài Nhập Khẩu', '123', NULL, 'soai-nhap-khau', 14, 10, '<p>Xo&agrave;i c&oacute; chứa phenol (những hợp chất hữu cơ m&agrave; ph&acirc;n tử của ch&uacute;ng c&oacute; nh&oacute;m hidroxyl li&ecirc;n kết trực tiếp với nguy&ecirc;n tử cacbon của v&ograve;ng benzene), chẳng hạn như quercetin, isoquercitrin, astragalin, fisetin, ax&iacute;t galic, methylgallat v&agrave; enzim c&oacute; khả năng ngăn ngừa bệnh ung thư.</p>\r\n\r\n<p>Ngo&agrave;i ra, xo&agrave;i c&ograve;n chứa rất nhiều chất xơ h&ograve;a tan trong nước được biết đến như l&agrave; pectin. C&aacute;c nh&agrave; khoa học cho rằng việc ăn nhiều chất xơ sẽ gi&uacute;p giảm thiểu nguy cơ mắc bệnh ung thư về đường ti&ecirc;u h&oacute;a. Khoảng 165g&nbsp;<a href=\"https://hongngochospital.vn/muoi-loi-ich-tuyet-voi-cua-xoai-doi-voi-suc-khoe/\" rel=\"noopener noreferrer\" target=\"_blank\">xo&agrave;i</a>&nbsp;sẽ cung cấp cho cơ thể ch&uacute;ng ta tới 75% lượng vitamin C cần thiết hằng ng&agrave;y. Xo&agrave;i cũng cung cấp một lượng chất chống oxy h&oacute;a mạnh mẽ, gi&uacute;p bảo vệ c&aacute;c tế b&agrave;o kh&ocirc;ng bị c&aacute;c gốc tự do hủy hoại, đồng thời giảm thiểu nguy cơ mắc bệnh ung thư.</p>\r\n\r\n<p><img alt=\"lợi ích của xoài\" height=\"520\" src=\"https://hongngochospital.vn/wp-content/uploads/2020/02/loi-ich-cua-xoai-2.jpg\" width=\"730\" /></p>\r\n\r\n<h2><strong>Gi&uacute;p ti&ecirc;u h&oacute;a tốt</strong></h2>\r\n\r\n<p>Xo&agrave;i chứa c&aacute;c enzim bẻ g&atilde;y c&aacute;c protein hỗ trợ cho qu&aacute; tr&igrave;nh ti&ecirc;u h&oacute;a dễ d&agrave;ng hơn. Ngo&agrave;i ra, xo&agrave;i c&ograve;n chống lại nồng độ axit v&agrave; l&agrave;m xoa dịu bao tử. V&igrave; lượng chất xơ c&oacute; trong xo&agrave;i rất cao n&ecirc;n n&oacute; c&oacute; thể gi&uacute;p bạn ngăn ngừa bệnh t&aacute;o b&oacute;n.</p>\r\n\r\n<h2><strong>Lợi &iacute;ch của xo&agrave;i: Tốt cho l&agrave;n da</strong></h2>\r\n\r\n<p>C&aacute;c chất c&oacute; trong xo&agrave;i c&oacute; khả năng l&agrave;m se kh&iacute;t lỗ ch&acirc;n l&ocirc;ng tr&ecirc;n da một c&aacute;ch hiệu quả. Điều n&agrave;y c&oacute; nghĩa l&agrave; xo&agrave;i c&oacute; &iacute;ch trong việc ngăn ngừa mụn. Bạn chỉ cần d&ugrave;ng thịt tr&aacute;i xo&agrave;i ch&agrave; x&aacute;t l&ecirc;n da mặt khoảng 10 ph&uacute;t rồi rửa lại bằng nước sạch. Ăn xo&agrave;i thường xuy&ecirc;n sẽ l&agrave;m cho da bạn lu&ocirc;n mềm mại v&agrave; mịn m&agrave;ng.</p>\r\n\r\n<p><img alt=\"\" height=\"548\" src=\"https://hongngochospital.vn/wp-content/uploads/2020/02/loi-ich-cua-xoai-1.jpg\" width=\"730\" /></p>', '<p>Xo&agrave;i c&oacute; chứa phenol (những hợp chất hữu cơ m&agrave; ph&acirc;n tử của ch&uacute;ng c&oacute; nh&oacute;m hidroxyl li&ecirc;n kết trực tiếp với nguy&ecirc;n tử cacbon của v&ograve;ng benzene), chẳng hạn như quercetin, isoquercitrin, astragalin, fisetin, ax&iacute;t galic, methylgallat v&agrave; enzim c&oacute; khả năng ngăn ngừa bệnh ung thư.</p>\r\n\r\n<p>Ngo&agrave;i ra, xo&agrave;i c&ograve;n chứa rất nhiều chất xơ h&ograve;a tan trong nước được biết đến như l&agrave; pectin. C&aacute;c nh&agrave; khoa học cho rằng việc ăn nhiều chất xơ sẽ gi&uacute;p giảm thiểu nguy cơ mắc bệnh ung thư về đường ti&ecirc;u h&oacute;a. Khoảng 165g&nbsp;<a href=\"https://hongngochospital.vn/muoi-loi-ich-tuyet-voi-cua-xoai-doi-voi-suc-khoe/\" rel=\"noopener noreferrer\" target=\"_blank\">xo&agrave;i</a>&nbsp;sẽ cung cấp cho cơ thể ch&uacute;ng ta tới 75% lượng vitamin C cần thiết hằng ng&agrave;y. Xo&agrave;i cũng cung cấp một lượng chất chống oxy h&oacute;a mạnh mẽ, gi&uacute;p bảo vệ c&aacute;c tế b&agrave;o kh&ocirc;ng bị c&aacute;c gốc tự do hủy hoại, đồng thời giảm thiểu nguy cơ mắc bệnh ung thư.</p>', '50000', 'product-687.jpg', 0, NULL, NULL),
-(31, 'Táo Nhập Khẩu', '321', NULL, 'tao-nhap-khau', 14, 10, '<p>T&aacute;o l&agrave; loại&nbsp;<a href=\"https://suckhoedoisong.vn/6-loai-trai-cay-chong-oxy-hoa-nen-uu-tien-hang-dau-169220409190117215.htm\" target=\"_blank\" title=\"6 loại trái cây chống oxy hóa nên ưu tiên hàng đầu \">tr&aacute;i c&acirc;y</a>&nbsp;được y&ecirc;u th&iacute;ch v&agrave; v&ocirc; c&ugrave;ng quen thuộc tr&ecirc;n to&agrave;n thế giới. Kh&ocirc;ng chỉ c&oacute; hương vị thơm ngon, ch&uacute;ng c&ograve;n chứa một loạt c&aacute;c chất dinh dưỡng, bao gồm carbohydrate,&nbsp;<a href=\"https://suckhoedoisong.vn/chat-xo.html\" target=\"_blank\" title=\"chất xơ\">chất xơ</a>,&nbsp;<a href=\"https://suckhoedoisong.vn/chat-chong-oxy-hoa.html\" target=\"_blank\" title=\"chất chống oxy hóa\">chất chống oxy h&oacute;a</a>, vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p>T&aacute;o l&agrave; một m&oacute;n ăn nhẹ tuyệt vời khi đ&oacute;i v&agrave; ch&uacute;ng l&agrave; một trong những loại tr&aacute;i c&acirc;y được ti&ecirc;u thụ nhiều nhất tr&ecirc;n to&agrave;n cầu. Điều đ&oacute; chủ yếu l&agrave; do m&ugrave;a n&agrave;o cũng c&oacute; t&aacute;o nhưng ch&uacute;ng cũng rất ngon v&agrave; linh hoạt khi chế biến th&agrave;nh m&oacute;n ăn.</p>\r\n\r\n<p><a href=\"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2022/4/13/an-tao-1649753163-653-width780height455-1649818902372-1649818902685597777607.jpg\" target=\"_blank\" title=\"Ăn táo lúc bụng còn rỗng là tốt nhất.\"><img alt=\"Lợi ích sức khỏe của trái táo và thời điểm thích hợp để ăn táo - Ảnh 2.\" height=\"\" src=\"https://suckhoedoisong.qltns.mediacdn.vn/324455921873985536/2022/4/13/an-tao-1649753163-653-width780height455-1649818902372-1649818902685597777607.jpg\" title=\"Lợi ích sức khỏe của trái táo và thời điểm thích hợp để ăn táo - Ảnh 2.\" width=\"\" /></a></p>\r\n\r\n<p>Ăn t&aacute;o l&uacute;c bụng c&ograve;n rỗng l&agrave; tốt nhất.</p>\r\n\r\n<h2><strong>Th&agrave;nh phần dinh dưỡng của t&aacute;o</strong></h2>\r\n\r\n<p>Dưới đ&acirc;y l&agrave; th&ocirc;ng tin dinh dưỡng cho một khẩu phần 100g t&aacute;o sống, chưa gọt vỏ:</p>\r\n\r\n<ul>\r\n	<li>Lượng calo: 52</li>\r\n	<li>Carb: 13,8 gam</li>\r\n	<li>Đường: 10,4 gam</li>\r\n	<li>Chất xơ: 2,4 gam</li>\r\n	<li>Chất đạm: 0,3 gam</li>\r\n	<li>Chất b&eacute;o: 0,2 gam</li>\r\n	<li>Vitamin C: 8% gi&aacute; trị h&agrave;ng ng&agrave;y (DV)</li>\r\n	<li>Kali: 3% DV</li>\r\n	<li>Magi&ecirc;: 1% DV</li>\r\n</ul>', '<p>T&aacute;o l&agrave; loại&nbsp;<a href=\"https://suckhoedoisong.vn/6-loai-trai-cay-chong-oxy-hoa-nen-uu-tien-hang-dau-169220409190117215.htm\" target=\"_blank\" title=\"6 loại trái cây chống oxy hóa nên ưu tiên hàng đầu \">tr&aacute;i c&acirc;y</a>&nbsp;được y&ecirc;u th&iacute;ch v&agrave; v&ocirc; c&ugrave;ng quen thuộc tr&ecirc;n to&agrave;n thế giới. Kh&ocirc;ng chỉ c&oacute; hương vị thơm ngon, ch&uacute;ng c&ograve;n chứa một loạt c&aacute;c chất dinh dưỡng, bao gồm carbohydrate,&nbsp;<a href=\"https://suckhoedoisong.vn/chat-xo.html\" target=\"_blank\" title=\"chất xơ\">chất xơ</a>,&nbsp;<a href=\"https://suckhoedoisong.vn/chat-chong-oxy-hoa.html\" target=\"_blank\" title=\"chất chống oxy hóa\">chất chống oxy h&oacute;a</a>, vitamin v&agrave; kho&aacute;ng chất.</p>\r\n\r\n<p>T&aacute;o l&agrave; một m&oacute;n ăn nhẹ tuyệt vời khi đ&oacute;i v&agrave; ch&uacute;ng l&agrave; một trong những loại tr&aacute;i c&acirc;y được ti&ecirc;u thụ nhiều nhất tr&ecirc;n to&agrave;n cầu. Điều đ&oacute; chủ yếu l&agrave; do m&ugrave;a n&agrave;o cũng c&oacute; t&aacute;o nhưng ch&uacute;ng cũng rất ngon v&agrave; linh hoạt khi chế biến th&agrave;nh m&oacute;n ăn.</p>', '50000', 'product-853.jpg', 0, NULL, NULL),
-(32, 'Quả Ớt Chuông', '32', NULL, 'qua-ot-chuong', 14, 10, '<p><strong>Ớt vốn được biết đến như một thực phẩm cay, n&oacute;ng dễ sinh nhiệt cho cơ thể. C&aacute;c chị em th&igrave; &iacute;t khi đụng đến v&igrave; sợ ảnh hưởng đến l&agrave;n da mong manh, nhạy cảm. Thế nhưng ớt c&oacute; rất nhiều lợi &iacute;ch tốt cho sức khỏe m&agrave; kh&ocirc;ng phải ai cũng biết. Nếu bạn say m&ecirc; c&aacute;i cảm gi&aacute;c đổ mồ h&ocirc;i, r&aacute;t bỏng lưỡi v&agrave; su&yacute;t soa hương vị cay nồng của m&oacute;n ăn c&oacute; ớt th&igrave; kh&ocirc;ng thể kh&ocirc;ng kh&aacute;m ph&aacute; th&ecirc;m những lợi &iacute;ch quyến rũ của gia vị n&agrave;y.&nbsp;</strong></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p><a href=\"https://syt.baclieu.gov.vn/documents/211672/218273/trai+ot1052012_133326.jpg/72e16263-1760-c8f0-a90f-8e3978afedad?t=1599725141861\"><img src=\"https://syt.baclieu.gov.vn/documents/211672/218273/trai+ot1052012_133326.jpg/72e16263-1760-c8f0-a90f-8e3978afedad?t=1599725141861\" /></a></p>\r\n\r\n<p>Theo gi&aacute;o sư Gi&aacute;o sư Shen Yanying, ph&oacute; chủ tịch Đại học Y thủ đ&ocirc;,&nbsp; Bệnh viện Triều Dương Bắc Kinh th&igrave; ớt c&oacute; chứa nguồn vitamin phong ph&uacute;.&nbsp;Một lượng ớt nhỏ ẩn chứa lượng rất dồi d&agrave;o như: A, B, C, E, vitamin K, axit folic carotene v&agrave; c&aacute;c vitamin kh&aacute;c.&nbsp;Ngo&agrave;i ra, n&oacute; c&ograve;n chứa nhiều canxi, sắt, c&aacute;c kho&aacute;ng sản v&agrave; chất xơ kh&aacute;c.&nbsp;Nhiều nghi&ecirc;n cứu trong v&agrave; ngo&agrave;i nước đ&atilde; tổng hợp 10 lợi &iacute;ch của ớt sau đ&acirc;y:</p>\r\n\r\n<p><strong>1. Th&uacute;c đẩy sự th&egrave;m ăn v&agrave; ti&ecirc;u h&oacute;a</strong></p>\r\n\r\n<p>Ớt c&oacute; thể th&uacute;c đẩy tiết dịch ti&ecirc;u h&oacute;a, tăng sự th&egrave;m ăn.</p>\r\n\r\n<p><strong>2. Chống đỡ lạnh</strong></p>\r\n\r\n<p>Ớt c&oacute; thể l&agrave;m ấm dạ d&agrave;y. Nếu bạn đang bị n&ocirc;n mửa, ti&ecirc;u chảy, đau bụng v&agrave; một v&agrave;i triệu chứng ti&ecirc;u h&oacute;a kh&aacute;c th&igrave; một ch&uacute;t ớt rất c&oacute; c&ocirc;ng hiệu với bạn.</p>\r\n\r\n<p><strong>3. Th&uacute;c đẩy lưu th&ocirc;ng m&aacute;u</strong></p>\r\n\r\n<p>Ớt c&oacute; một số đặc t&iacute;nh chữa bệnh, n&oacute; c&oacute; thể gi&uacute;p &ldquo;đổ mồ h&ocirc;i ngo&agrave;i, long đờm, khử ẩm&rdquo;. Theo giải th&iacute;ch của y học hiện đại, ớt c&oacute; thể th&uacute;c đẩy lưu th&ocirc;ng m&aacute;u, cải thiện t&ecirc; c&oacute;ng, lạnh, đau đầu&hellip;</p>\r\n\r\n<p><strong>4. L&agrave;m đẹp da</strong></p>\r\n\r\n<p>C&aacute;c chị em c&oacute; thể rất bất ngờ khi biết rằng ớt c&oacute; thể l&agrave;m đẹp da. Ớt c&oacute; thể th&uacute;c đẩy sự tiết hormone, cải thiện t&igrave;nh trạng da.&nbsp;Nhiều người nghĩ rằng thực phẩm nhiều gia vị l&agrave; một phần nguy&ecirc;n nh&acirc;n của bệnh đậu m&ugrave;a, gia tăng t&igrave;nh trạng ti&ecirc;u cực của da, nhưng tr&ecirc;n thực tế vấn đề kh&ocirc;ng phải từ ớt.&nbsp;</p>', '<p><strong>Ớt vốn được biết đến như một thực phẩm cay, n&oacute;ng dễ sinh nhiệt cho cơ thể. C&aacute;c chị em th&igrave; &iacute;t khi đụng đến v&igrave; sợ ảnh hưởng đến l&agrave;n da mong manh, nhạy cảm. Thế nhưng ớt c&oacute; rất nhiều lợi &iacute;ch tốt cho sức khỏe m&agrave; kh&ocirc;ng phải ai cũng biết. Nếu bạn say m&ecirc; c&aacute;i cảm gi&aacute;c đổ mồ h&ocirc;i, r&aacute;t bỏng lưỡi v&agrave; su&yacute;t soa hương vị cay nồng của m&oacute;n ăn c&oacute; ớt th&igrave; kh&ocirc;ng thể kh&ocirc;ng kh&aacute;m ph&aacute; th&ecirc;m những lợi &iacute;ch quyến rũ của gia vị n&agrave;y.&nbsp;</strong></p>', '321', 'product-details-249.jpg', 0, NULL, NULL),
-(33, 'Cải bẹ xanh', '21', NULL, 'cai-be-xanh', 12, 10, '<p>Cũng giống như cải bẹ, cải bẹ xanh c&oacute; vị đắng nhưng bẹ l&aacute; nhỏ hơn, chủ yếu tập trung ph&aacute;t triển l&aacute;. Phần l&aacute; m&agrave;u xanh đậm, l&aacute; mỏng, rất hợp để nấu canh. Vị cay v&agrave; đắng nhẹ của loại cải n&agrave;y c&oacute; thể hợp với cả nấu với thịt, nấu với hến, ngao&hellip; Cải bẹ xanh dễ trồng, c&oacute; thể trồng ở hộp xốp cũng sinh trưởng tốt.</p>\r\n\r\n<p><img alt=\"\" height=\"600\" sizes=\"(max-width: 600px) 100vw, 600px\" src=\"https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1.jpg.webp\" srcset=\"https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1.jpg.webp 600w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-300x300.jpg.webp 300w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-150x150.jpg.webp 150w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-64x64.jpg.webp 64w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-65x65.jpg.webp 65w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-500x500.jpg.webp 500w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-96x96.jpg.webp 96w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-120x120.jpg.webp 120w,https://bepxua.vn/wp-content/uploads/2021/08/cai-be-xanh-1-75x75.jpg.webp 75w\" width=\"600\" /></p>\r\n\r\n<p>Trong cải bẹ xanh chứa nhiều chất dinh dưỡng tốt như canxi, sắt, kali, riboflavin, magi&ecirc; v&agrave; thiamine (vitamin B1), cũng như một lượng nhỏ kẽm, selen, phốt pho, niacin (vitamin B3) v&agrave; folate.</p>', '<p>Cũng giống như cải bẹ, cải bẹ xanh c&oacute; vị đắng nhưng bẹ l&aacute; nhỏ hơn, chủ yếu tập trung ph&aacute;t triển l&aacute;. Phần l&aacute; m&agrave;u xanh đậm, l&aacute; mỏng, rất hợp để nấu canh. Vị cay v&agrave; đắng nhẹ của loại cải n&agrave;y c&oacute; thể hợp với cả nấu với thịt, nấu với hến, ngao&hellip; Cải bẹ xanh dễ trồng, c&oacute; thể trồng ở hộp xốp cũng sinh trưởng tốt.</p>', '5000', 'product-details-380.jpg', 0, NULL, NULL);
+(1, 'Tay cầm chơi game PS4 màu đỏ', '5', 5, 'tay-cam-ps4-1', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
+(2, 'Tay cầm chơi game PS4 màu trắng', '44', 6, 'tay-cam-choi-game-ps4-mau-trang-1', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
+(3, 'Máy PS4 màu đỏ', '30', 0, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '3500000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
+(4, 'Tay cầm chơi game PS4 màu đỏ', '30', 0, 'tay-cam-ps4-2', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
+(5, 'Tay cầm chơi game PS4 màu trắng', '15', 5, 'tay-cam-choi-game-ps4-mau-trang-2', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
+(6, 'Máy PS4 màu đỏ', '70', 0, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '5600000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
+(7, 'Tay cầm chơi game PS4 màu đỏ', '70', 127, 'tay-cam-ps4-3', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
+(8, 'Tay cầm chơi game PS4 màu trắng', '50', 20, 'tay-cam-choi-game-ps4-mau-trang-3', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
+(9, 'Máy PS4 màu đỏ', '30', 27, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '5006000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
+(10, 'Tay cầm chơi game PS4 màu đỏ', '20', 30, 'tay-cam-ps4-4', 3, 1, 'Tay cầm chơi game PS4 màu đỏ', 'Tay cầm chơi game PS4 màu đỏ', '60000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Đỏ-Dualshock-4-red-GameStation8.jpg', 0, NULL, NULL),
+(11, 'Tay cầm chơi game PS4 màu trắng', '9', 11, 'tay-cam-choi-game-ps4-mau-trang-4', 3, 1, 'Tay cầm chơi game PS4 màu trắng', 'Tay cầm chơi game PS4 màu trắng', '500000', 'Tay-cầm-PS4-Slim-Chính-Hãng-Màu-Trắng-Dualshock-4-white-GameStation89.jpg', 0, NULL, NULL),
+(12, 'Máy PS4 màu đỏ', '49', 1, 'may-ps4-mau-do', 2, 1, 'Máy PS4 màu đỏ', 'Máy PS4 màu đỏ', '5000000', 'sony-tung-ra-thi-truong-may-ps4-pro-marvels-spider-man-phien-ban-gioi-han-anh-382.jpg', 0, NULL, NULL),
+(14, 'Xbox 11233', '19', 1, 'xbox-1-1', 1, 1, '<p>dasdasd</p>', '<p>asdasd</p>', '1500000', '471937-microsoft-xbox-one-x69.jpg', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_quanhuyen`
+-- Cấu trúc bảng cho bảng `tbl_quanhuyen`
 --
 
 CREATE TABLE `tbl_quanhuyen` (
@@ -325,7 +329,7 @@ CREATE TABLE `tbl_quanhuyen` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_quanhuyen`
+-- Đang đổ dữ liệu cho bảng `tbl_quanhuyen`
 --
 
 INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
@@ -1046,27 +1050,7 @@ INSERT INTO `tbl_quanhuyen` (`maqh`, `name_quanhuyen`, `type`, `matp`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_roles`
---
-
-CREATE TABLE `tbl_roles` (
-  `id_roles` int(11) NOT NULL,
-  `name` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `tbl_roles`
---
-
-INSERT INTO `tbl_roles` (`id_roles`, `name`) VALUES
-(1, 'admin'),
-(2, 'author'),
-(3, 'user');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `tbl_shipping`
+-- Cấu trúc bảng cho bảng `tbl_shipping`
 --
 
 CREATE TABLE `tbl_shipping` (
@@ -1082,17 +1066,16 @@ CREATE TABLE `tbl_shipping` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tbl_shipping`
+-- Đang đổ dữ liệu cho bảng `tbl_shipping`
 --
 
 INSERT INTO `tbl_shipping` (`shipping_id`, `shipping_name`, `shipping_address`, `shipping_phone`, `shipping_email`, `shipping_notes`, `shipping_method`, `created_at`, `updated_at`) VALUES
-(17, 'Lê Vĩnh', 'Đà Nẵng', '0326190400', 'vinhdeptrai', 'Nhanh nha mày', 1, NULL, NULL),
-(18, 'Vĩnh Lê', '123/123', '0326190400', 'dsadas@gmail.com', 'dasdasdasdas', 1, NULL, NULL);
+(17, 'Hieu Tấn', '245 Nguyễn Văn Khạ, Tân An Hội .Thị trấn Củ Chi,TPHCM', '0932023992', 'Hieu dep giai', 'Nhanh nha mày', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_slider`
+-- Cấu trúc bảng cho bảng `tbl_slider`
 --
 
 CREATE TABLE `tbl_slider` (
@@ -1104,17 +1087,19 @@ CREATE TABLE `tbl_slider` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_slider`
+-- Đang đổ dữ liệu cho bảng `tbl_slider`
 --
 
 INSERT INTO `tbl_slider` (`slider_id`, `slider_name`, `slider_status`, `slider_image`, `slider_desc`) VALUES
-(9, 'Hình Anh 1', 1, '192.jpg', 'Hình Anh 1'),
-(10, 'Hình ảnh 2', 1, 'gia-rau-cu-qua-hom-nay-177-da-dang-khuyen-mai-23-6.jpg', 'Hình ảnh 2');
+(1, 'Slider 1', 1, 'slider149.jpg', 'Thông tin khuyến mãi nạp thẻ game'),
+(2, 'Slider 1', 1, 'slider188.jpg', 'dasdasdasdasdasd'),
+(3, 'Slider 2', 1, 'slider275.jpg', 'dsadasdas'),
+(4, 'Slider 3', 0, 'slider318.jpg', 'dasdasdasd');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_social`
+-- Cấu trúc bảng cho bảng `tbl_social`
 --
 
 CREATE TABLE `tbl_social` (
@@ -1125,19 +1110,17 @@ CREATE TABLE `tbl_social` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `tbl_social`
+-- Đang đổ dữ liệu cho bảng `tbl_social`
 --
 
 INSERT INTO `tbl_social` (`user_id`, `provider_user_id`, `provider`, `user`) VALUES
 (6, '221605442317143', 'facebook', 6),
-(13, '111257400060277532733', 'GOOGLE', 12),
-(14, '111264198467826812391', 'GOOGLE', 2),
-(15, '108162077516942840028', 'GOOGLE', 3);
+(13, '111257400060277532733', 'GOOGLE', 12);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_tinhthanhpho`
+-- Cấu trúc bảng cho bảng `tbl_tinhthanhpho`
 --
 
 CREATE TABLE `tbl_tinhthanhpho` (
@@ -1147,7 +1130,7 @@ CREATE TABLE `tbl_tinhthanhpho` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 --
--- Dumping data for table `tbl_tinhthanhpho`
+-- Đang đổ dữ liệu cho bảng `tbl_tinhthanhpho`
 --
 
 INSERT INTO `tbl_tinhthanhpho` (`matp`, `name_city`, `type`) VALUES
@@ -1218,7 +1201,7 @@ INSERT INTO `tbl_tinhthanhpho` (`matp`, `name_city`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tbl_xaphuongthitran`
+-- Cấu trúc bảng cho bảng `tbl_xaphuongthitran`
 --
 
 CREATE TABLE `tbl_xaphuongthitran` (
@@ -1229,7 +1212,7 @@ CREATE TABLE `tbl_xaphuongthitran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `tbl_xaphuongthitran`
+-- Đang đổ dữ liệu cho bảng `tbl_xaphuongthitran`
 --
 
 INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALUES
@@ -12407,7 +12390,7 @@ INSERT INTO `tbl_xaphuongthitran` (`xaid`, `name_xaphuong`, `type`, `maqh`) VALU
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Cấu trúc bảng cho bảng `users`
 --
 
 CREATE TABLE `users` (
@@ -12422,207 +12405,183 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Indexes for dumped tables
+-- Chỉ mục cho các bảng đã đổ
 --
 
 --
--- Indexes for table `admin_roles`
---
-ALTER TABLE `admin_roles`
-  ADD PRIMARY KEY (`id_admin_roles`);
-
---
--- Indexes for table `tbl_admin`
+-- Chỉ mục cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
   ADD PRIMARY KEY (`admin_id`);
 
 --
--- Indexes for table `tbl_brand`
+-- Chỉ mục cho bảng `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
   ADD PRIMARY KEY (`brand_id`);
 
 --
--- Indexes for table `tbl_category_product`
+-- Chỉ mục cho bảng `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
   ADD PRIMARY KEY (`category_id`);
 
 --
--- Indexes for table `tbl_coupon`
+-- Chỉ mục cho bảng `tbl_coupon`
 --
 ALTER TABLE `tbl_coupon`
   ADD PRIMARY KEY (`coupon_id`);
 
 --
--- Indexes for table `tbl_customers`
+-- Chỉ mục cho bảng `tbl_customers`
 --
 ALTER TABLE `tbl_customers`
   ADD PRIMARY KEY (`customer_id`);
 
 --
--- Indexes for table `tbl_feeship`
+-- Chỉ mục cho bảng `tbl_feeship`
 --
 ALTER TABLE `tbl_feeship`
   ADD PRIMARY KEY (`fee_id`);
 
 --
--- Indexes for table `tbl_order`
+-- Chỉ mục cho bảng `tbl_order`
 --
 ALTER TABLE `tbl_order`
   ADD PRIMARY KEY (`order_id`);
 
 --
--- Indexes for table `tbl_order_details`
+-- Chỉ mục cho bảng `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
   ADD PRIMARY KEY (`order_details_id`);
 
 --
--- Indexes for table `tbl_product`
+-- Chỉ mục cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
   ADD PRIMARY KEY (`product_id`);
 
 --
--- Indexes for table `tbl_quanhuyen`
+-- Chỉ mục cho bảng `tbl_quanhuyen`
 --
 ALTER TABLE `tbl_quanhuyen`
   ADD PRIMARY KEY (`maqh`);
 
 --
--- Indexes for table `tbl_roles`
---
-ALTER TABLE `tbl_roles`
-  ADD PRIMARY KEY (`id_roles`);
-
---
--- Indexes for table `tbl_shipping`
+-- Chỉ mục cho bảng `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
   ADD PRIMARY KEY (`shipping_id`);
 
 --
--- Indexes for table `tbl_slider`
+-- Chỉ mục cho bảng `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
   ADD PRIMARY KEY (`slider_id`);
 
 --
--- Indexes for table `tbl_social`
+-- Chỉ mục cho bảng `tbl_social`
 --
 ALTER TABLE `tbl_social`
   ADD PRIMARY KEY (`user_id`);
 
 --
--- Indexes for table `tbl_tinhthanhpho`
+-- Chỉ mục cho bảng `tbl_tinhthanhpho`
 --
 ALTER TABLE `tbl_tinhthanhpho`
   ADD PRIMARY KEY (`matp`);
 
 --
--- Indexes for table `tbl_xaphuongthitran`
+-- Chỉ mục cho bảng `tbl_xaphuongthitran`
 --
 ALTER TABLE `tbl_xaphuongthitran`
   ADD PRIMARY KEY (`xaid`);
 
 --
--- Indexes for table `users`
+-- Chỉ mục cho bảng `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT cho các bảng đã đổ
 --
 
 --
--- AUTO_INCREMENT for table `admin_roles`
---
-ALTER TABLE `admin_roles`
-  MODIFY `id_admin_roles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
-
---
--- AUTO_INCREMENT for table `tbl_admin`
+-- AUTO_INCREMENT cho bảng `tbl_admin`
 --
 ALTER TABLE `tbl_admin`
-  MODIFY `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `admin_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `tbl_brand`
+-- AUTO_INCREMENT cho bảng `tbl_brand`
 --
 ALTER TABLE `tbl_brand`
-  MODIFY `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `brand_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `tbl_category_product`
+-- AUTO_INCREMENT cho bảng `tbl_category_product`
 --
 ALTER TABLE `tbl_category_product`
-  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `tbl_coupon`
+-- AUTO_INCREMENT cho bảng `tbl_coupon`
 --
 ALTER TABLE `tbl_coupon`
-  MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `coupon_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_customers`
+-- AUTO_INCREMENT cho bảng `tbl_customers`
 --
 ALTER TABLE `tbl_customers`
-  MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `customer_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `tbl_feeship`
+-- AUTO_INCREMENT cho bảng `tbl_feeship`
 --
 ALTER TABLE `tbl_feeship`
-  MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `fee_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `tbl_order`
+-- AUTO_INCREMENT cho bảng `tbl_order`
 --
 ALTER TABLE `tbl_order`
-  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `order_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `tbl_order_details`
+-- AUTO_INCREMENT cho bảng `tbl_order_details`
 --
 ALTER TABLE `tbl_order_details`
-  MODIFY `order_details_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `order_details_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
--- AUTO_INCREMENT for table `tbl_product`
+-- AUTO_INCREMENT cho bảng `tbl_product`
 --
 ALTER TABLE `tbl_product`
-  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `product_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
--- AUTO_INCREMENT for table `tbl_roles`
---
-ALTER TABLE `tbl_roles`
-  MODIFY `id_roles` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `tbl_shipping`
+-- AUTO_INCREMENT cho bảng `tbl_shipping`
 --
 ALTER TABLE `tbl_shipping`
-  MODIFY `shipping_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `shipping_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
--- AUTO_INCREMENT for table `tbl_slider`
+-- AUTO_INCREMENT cho bảng `tbl_slider`
 --
 ALTER TABLE `tbl_slider`
-  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `slider_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `tbl_social`
+-- AUTO_INCREMENT cho bảng `tbl_social`
 --
 ALTER TABLE `tbl_social`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT cho bảng `users`
 --
 ALTER TABLE `users`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;

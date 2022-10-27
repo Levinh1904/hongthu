@@ -48,9 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <li>
-            <input type="text" class="form-control search" placeholder=" Search">
-        </li>
+
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -68,8 +66,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="#"><i class=" fa fa-suitcase"></i>Profile</a></li>
-                <li><a href="#"><i class="fa fa-cog"></i> Settings</a></li>
                 <li><a href="{{URL::to('/logout')}}"><i class="fa fa-key"></i>Đăng xuất</a></li>
             </ul>
         </li>
@@ -182,6 +178,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                       
                     </ul>
                 </li>
+                <a class="logout" href="{{URL::to('/logout')}}"><i ></i>Đăng xuất</a>
              
             </ul>            </div>
         <!-- sidebar menu end-->
@@ -193,13 +190,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<section class="wrapper">
         @yield('admin_content')
     </section>
- <!-- footer -->
-		  <div class="footer">
-			<div class="wthree-copyright">
-			  <p>Các bạn xem hướng dẫn tạo project  : <a target="_blank" href="https://www.youtube.com/watch?v=CjA79XhHVQI&list=PLWTu87GngvNxpWN6FVuEcS-YvFNq6RnqG">tại đây nhé</a></p>
-			</div>
-		  </div>
-  <!-- / footer -->
+
 </section>
 <!--main content end-->
 </section>

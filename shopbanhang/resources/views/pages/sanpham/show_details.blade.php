@@ -114,11 +114,13 @@
 										<div class="product-image-wrapper">
 											 <div class="single-products">
 		                                        <div class="productinfo text-center product-related">
+												<a href="{{URL::to('/chi-tiet/'.$lienquan->product_slug)}}">
 		                                            <img src="{{URL::to('public/uploads/product/'.$lienquan->product_image)}}" alt="" />
 		                                            <h2>{{number_format($lienquan->product_price,0,',','.').' '.'VNĐ'}}</h2>
 		                                            <p>{{$lienquan->product_name}}</p>
 													<input type="button" value="Thêm giỏ hàng" class="btn btn-default add-to-cart" data-id_product="{{$lienquan->product_id}}" name="add-to-cart">
-		                                        </div>
+												</a>
+												</div>
 		                                      
                                 			</div>
 										</div>
